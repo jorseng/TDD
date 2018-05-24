@@ -13,6 +13,7 @@ class NewVisitorTest(unittest.TestCase):
     def test_list(self):
         self.browser.get('http://localhost:8000')
         self.assertIn('To-Do', self.browser.title)
+        self.fail('Finish the Test!')
 
 
 if __name__ == '__main__':
