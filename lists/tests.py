@@ -1,4 +1,4 @@
-from django.test import TestCase
+"""from django.test import TestCase
 from django.urls import resolve
 from django.http import HttpRequest
 
@@ -16,6 +16,15 @@ class HomePageTest(TestCase):
         request = HttpRequest()
         response = home_page(request)
         html = response.content.decode('utf8')
-        self.assertTrue(html.startswith('<html>'))
+        self.assertTrue(html.strip().startswith('<html>'))
         self.assertIn('<title>To-Do Lists</title>', html)
-        self.assertTrue(html.endswith('</html>'))
+        self.assertTrue(html.strip().endswith('</html>'))
+"""
+
+from django.test import TestCase
+
+
+class HomePageTest(TestCase):
+    def test_home_template(self):
+        response = self.client.get('/')
+        self.assertTemplateUsed(response, 'home.html')
